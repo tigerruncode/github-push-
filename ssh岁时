@@ -1,0 +1,16 @@
+Git push远程仓库总是需要账号密码？
+2017年03月04日 21:17:30
+阅读数：484
+在使用git fetch远程仓库时，使用了https协议。 
+需要确认具体协议可以使用$git remote -v查看。 
+如看到像下面一样使用‘https://’这种引用，则说明使用了https协议。
+
+origin https://github.com/FireWithFire/testRepository.git (fetch) 
+origin https://github.com/FireWithFire/testRepository.git (push)
+
+此时，需要将协议调整为使用SSH协议。 
+具体操作如下：
+
+—>删除origin：git remote rm origin 
+—>重新增加origin：git remote add origin git@github.com:username/repository.git 
+—>提交：git push -u origin master
